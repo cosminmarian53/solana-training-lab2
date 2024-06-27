@@ -1,3 +1,4 @@
+import "dotenv/config";
 import {
   Connection,
   PublicKey,
@@ -5,10 +6,12 @@ import {
   LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
 
+import bs58 from "bs58";
 async function checkBalance() {
   // Connect to the Solana network
   const connection = new Connection(clusterApiUrl("devnet"));
   console.log("💘Connected to the devnet cluster");
+
   const publicKey = new PublicKey(
     "8P6G7qy5P3FxzdXZRz9nSK5Gvy8bzVBhaBwn3cnaZkBT"
   );
