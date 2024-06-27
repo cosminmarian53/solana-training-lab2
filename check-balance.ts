@@ -4,6 +4,7 @@ import {
   PublicKey,
   clusterApiUrl,
   LAMPORTS_PER_SOL,
+  Keypair,
 } from "@solana/web3.js";
 
 import bs58 from "bs58";
@@ -15,6 +16,9 @@ async function checkBalance() {
   const publicKey = new PublicKey(
     "8P6G7qy5P3FxzdXZRz9nSK5Gvy8bzVBhaBwn3cnaZkBT"
   );
+
+  const keypair = Keypair.generate();
+  const privateKey = bs58.encode(keypair.secretKey);
 
   try {
     // Get the balance of the account
